@@ -3,7 +3,7 @@ import React from 'react';
 class Index extends React.Component {
     render() {
         return (
-            <div> Welcome Page! </div>
+            <h1> Welcome Page! </h1>
         );
     }
 }
