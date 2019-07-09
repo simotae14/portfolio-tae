@@ -1,7 +1,3 @@
-const Index = () => (
-    <div>
-        <p>Hello Next.js</p>
-    </div>
-);
+const Index = () => <div> Welcome Page! </div>
 
 export default Index;
