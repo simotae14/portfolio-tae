@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 // This is the Link API
 import Link from 'next/link';
+import '../../styles/main.scss';
 
 class Header extends React.Component {
     render() {
@@ -11,8 +12,10 @@ class Header extends React.Component {
                      { title }
                 </p>
                 { this.props.children }
+                <p className='customClass'> I am styled P element </p>
+                <p className='customClassFromFile'> I am styled P element </p>
                 <Link href="/">
-                    <a> Home </a>
+                    <a style={{ 'fontSize': '20px' }}> Home </a>
                 </Link>
                 <Link href="/about">
                     <a> About </a>
@@ -26,6 +29,18 @@ class Header extends React.Component {
                 <Link href="/cv">
                     <a> Cv </a>
                 </Link>
+                <style jsx>
+                    {
+                        `
+                            a {
+                                font-size: 20px;
+                            };
+                            .customClass {
+                                color: red;
+                            }
+                        `
+                    }
+                </style>
             </Fragment>
         );
     }
