@@ -2,6 +2,15 @@ import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 
 class Index extends React.Component {
+    static getInitialProps() {
+        console.log('I am getInitialProps');
+        return {
+            initialData: [
+                1, 2, 3, 4
+            ]
+        };
+    }
+
     constructor() {
         super();
         this.state = {
@@ -31,6 +40,9 @@ class Index extends React.Component {
         const {
             title
         } = this.state;
+        const {
+            initialData
+        } = this.props;
         console.log('render');
         return (
             <BaseLayout>
