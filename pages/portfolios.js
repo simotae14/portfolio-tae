@@ -22,7 +22,7 @@ class Portfolios extends React.Component {
                 <li>
                     <Link
                         as={`/portfolio/${post.id}`}
-                        href={`/portfolio?title=${post.title}`}
+                        href={`/portfolio?id=${post.id}`}
                     >
                         <a style={{ 'fontSize': '20px' }}> { post.title } </a>
                     </Link>

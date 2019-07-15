@@ -9,6 +9,15 @@ app.prepare()
     .then(() => {
         const server = express();
 
+        /* endpoint for the single portfolio page */
+        server.get('/portfolio/:id', (req, res) => {
+            const actualPage = '/portfolio';
+            const queryParams = {
+                id: req.params.id
+            };
+            app.render(req, res, actualPage, queryParams);
+        })
+
         server.get('*', (req, res) => {
             return handle(req, res);
         });
