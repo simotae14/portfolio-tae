@@ -18,8 +18,8 @@ class Portfolios extends React.Component {
         };
     }
     renderPosts = (posts) => {
-        return posts.map(post =>(
-                <li>
+        return posts.map((post, index) =>(
+                <li key={index}>
                     <Link
                         route={`/portfolio/${post.id}`}
                     >
