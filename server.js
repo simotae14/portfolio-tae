@@ -11,7 +11,6 @@ app.prepare()
 
         /* endpoint for the single portfolio page */
         server.get('/portfolio/:id', (req, res) => {
-            console.log('---------Serving /portfolio/:id request!!!!!-----------');
             const actualPage = '/portfolio';
             const queryParams = {
                 id: req.params.id
@@ -20,7 +19,6 @@ app.prepare()
         })
 
         server.get('*', (req, res) => {
-            console.log('---------Serving all of the requests!!!!!-----------');
             return handle(req, res);
         });
 
