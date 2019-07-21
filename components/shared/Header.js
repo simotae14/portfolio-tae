@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 // This is the Link API
 import Link from 'next/link';
-import '../../styles/main.scss';
 
 class Header extends React.Component {
     render() {
