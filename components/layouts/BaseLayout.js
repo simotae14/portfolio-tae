@@ -2,11 +2,19 @@ import { Fragment } from 'react';
 import Header from '../shared/Header';
 
 const BaseLayout = (props) => {
+    const {
+        children,
+        className
+    } = props;
     return (
-        <Fragment>
+        <div className="layout-container">
             <Header />
-            { props.children }
-        </Fragment>
+            <main className={`cover ${className}`}>
+                <div className='wrapper'>
+                    { children }
+                </div>
+            </main>
+        </div>
     );
 };
 
