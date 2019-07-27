@@ -1,5 +1,10 @@
 @import './shared/fonts';
+
+// PAGES
 @import './index';
+
+// COMPONENTS
+@import './header';
 
 html,
 body {
@@ -14,3 +19,13 @@ body {
     letter-spacing: 2px;
     color: white;
 }
+
+.absolute {
+    position: absolute;
+}
+
+.base-page {
+    padding-top: 150px;
+    color: white;
+}
+  

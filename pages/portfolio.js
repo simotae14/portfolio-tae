@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'next/router';
 import axios from 'axios';
 import BaseLayout from '../components/layouts/BaseLayout';
+import BasePage from '../components/BasePage';
 
 class Portfolio extends React.Component {
     static async getInitialProps({ query }) {
@@ -23,11 +24,13 @@ class Portfolio extends React.Component {
         } = this.props;
         return (
             <BaseLayout>
-                <h1>
-                    {portfolio.title}
-                </h1>
-                <p> BODY: {portfolio.body} </p>
-                <p> ID: {portfolio.id} </p>
+                <BasePage>
+                    <h1>
+                        {portfolio.title}
+                    </h1>
+                    <p> BODY: {portfolio.body} </p>
+                    <p> ID: {portfolio.id} </p>                
+                </BasePage>
             </BaseLayout>
         );
     }

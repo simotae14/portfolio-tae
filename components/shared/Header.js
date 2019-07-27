@@ -7,12 +7,11 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
-    NavLink } from 'reactstrap';
+    NavItem } from 'reactstrap';
 
 const BsNavLink = ({ route, title }) => (
     <Link href={route}>
-        <a className="nav-link"> { title } </a>
+        <a className="port-navbar-link nav-link"> { title } </a>
     </Link>
 );
 
@@ -33,24 +32,24 @@ export default class Example extends React.Component {
     render() {
         return (
             <div>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">Simone Taeggi</NavbarBrand>
+                <Navbar className="absolute port-navbar port-default" color="transparent" dark expand="md">
+                    <NavbarBrand className="port-navbar-brand" href="/">Simone Taeggi</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
+                            <NavItem className="port-navbar-item">
                                 <BsNavLink title="Home" route="/" />
                             </NavItem>
-                            <NavItem>
+                            <NavItem className="port-navbar-item">
                                 <BsNavLink title="About" route="/about" />
                             </NavItem>
-                            <NavItem>
+                            <NavItem className="port-navbar-item">
                                 <BsNavLink title="Portfolio" route="/portfolios" />
                             </NavItem>
-                            <NavItem>
+                            <NavItem className="port-navbar-item">
                                 <BsNavLink title="Blog" route="/blogs" />
                             </NavItem>
-                            <NavItem>
+                            <NavItem className="port-navbar-item">
                                 <BsNavLink title="Cv" route="/cv" />
                             </NavItem>
 
