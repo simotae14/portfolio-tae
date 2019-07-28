@@ -15,6 +15,20 @@ const BsNavLink = ({ route, title }) => (
     </Link>
 );
 
+// Login Component
+const Login = () => {
+    return (
+        <span className="port-navbar-link nav-link clickable"> Login </span>
+    )
+}
+
+// Logout Component
+const Logout = () => {
+    return (
+        <span className="port-navbar-link nav-link clickable"> Logout </span>
+    )
+}
+
 export default class Example extends React.Component {
     constructor(props) {
         super(props);
@@ -52,7 +66,12 @@ export default class Example extends React.Component {
                             <NavItem className="port-navbar-item">
                                 <BsNavLink title="Cv" route="/cv" />
                             </NavItem>
-
+                            <NavItem className="port-navbar-item">
+                                <Login />
+                            </NavItem>
+                            <NavItem className="port-navbar-item">
+                                <Logout />
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>
