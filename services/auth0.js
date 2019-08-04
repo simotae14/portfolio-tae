@@ -13,14 +13,19 @@ class Auth0 {
 
   //method to handle the authentication
   handleAuthentication = () => {
-    this.auth0.parseHash((err, authResult) => {
-      // if we are logged in with success
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        console.log(error);
-      }
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        // if we are logged in with success
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult);
+          resolve();
+        } else if (err) {
+          reject(err);
+          console.log(error);
+        }
+      });
     });
+
   }
 
   setSession = () => {
