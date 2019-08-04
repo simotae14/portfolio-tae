@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import Cookies from 'js-cookie';
 
 class Auth0 {
   constructor() {
@@ -28,12 +29,38 @@ class Auth0 {
 
   }
 
-  setSession = () => {
-    // Save tokens!!!!
+  // to save the tokens in the cookies
+  setSession = (authResult) => {
+    debugger;
+    const expiresIn = JSON.stringify((authResult.expiresIn + 1000) + new Date().getTime());
+
+    Cookies.set('user', authResult.idTokenPayload);
+    Cookies.set('jwt', authResult.idToken);
+    Cookies.set('expiresIn', expiresIn);
   }
+
+  // logout removes cookies
+  logout = () => {
+    Cookies.remove('user');
+    Cookies.remove('jwt');
+    Cookies.remove('expiresIn');
+
+    //and logout
+    auth0.logout({
+      returnTo: '',
+      clientID: '30yKfsGm3O9szUJKv0yynP416qV3Xs9d'
+    })
+  } 
 
   login = () => {
     this.auth0.authorize();
+  }
+
+  // check if the user is authenticated
+  isAuthenticated = () => {
+    // if the expires time is not already happened
+    const expiresIn = Cookies.getJSON('expiresIn');
+    return new Date().getTime() < expiresIn;
   }
 }
 
