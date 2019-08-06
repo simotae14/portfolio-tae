@@ -27,7 +27,7 @@ const Login = () => {
 // Logout Component
 const Logout = () => {
     return (
-        <span className="port-navbar-link nav-link clickable"> Logout </span>
+        <span onClick={auth0.logout} className="port-navbar-link nav-link clickable"> Logout </span>
     )
 }
 
@@ -68,12 +68,17 @@ export default class Example extends React.Component {
                             <NavItem className="port-navbar-item">
                                 <BsNavLink title="Cv" route="/cv" />
                             </NavItem>
-                            <NavItem className="port-navbar-item">
-                                <Login />
-                            </NavItem>
-                            <NavItem className="port-navbar-item">
-                                <Logout />
-                            </NavItem>
+                            {
+                                !auth0.isAuthenticated() ? (
+                                    <NavItem className="port-navbar-item">
+                                        <Login />
+                                    </NavItem>
+                                ) : (
+                                    <NavItem className="port-navbar-item">
+                                        <Logout />
+                                    </NavItem>
+                                )
+                            }
                         </Nav>
                     </Collapse>
                 </Navbar>

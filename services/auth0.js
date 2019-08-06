@@ -46,10 +46,10 @@ class Auth0 {
     Cookies.remove('expiresIn');
 
     //and logout
-    auth0.logout({
+    this.auth0.logout({
       returnTo: '',
       clientID: '30yKfsGm3O9szUJKv0yynP416qV3Xs9d'
-    })
+    });
   } 
 
   login = () => {
