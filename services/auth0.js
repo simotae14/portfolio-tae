@@ -62,6 +62,23 @@ class Auth0 {
     const expiresIn = Cookies.getJSON('expiresIn');
     return new Date().getTime() < expiresIn;
   }
+
+  // client Authentication
+  clientAuth = () => {
+    return this.isAuthenticated();
+  }
+
+  // server Authentication
+  serverAuth = (req) => {
+    if (req.headers.cookie) {
+      const expiresInCookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('expiresIn='));
+      if (!expiresInCookie) { return undefined; }
+      // retrieve the real data, the time
+      const expiresIn = expiresInCookie.split('=')[1];
+      // now check if the current data is already expired
+      return new Date().getTime() < expiresIn;
+    }
+  }
 }
 
 // create instance
