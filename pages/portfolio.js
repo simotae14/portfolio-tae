@@ -23,7 +23,7 @@ class Portfolio extends React.Component {
             portfolio
         } = this.props;
         return (
-            <BaseLayout>
+            <BaseLayout {...this.props.auth}>
                 <BasePage>
                     <h1>
                         {portfolio.title}

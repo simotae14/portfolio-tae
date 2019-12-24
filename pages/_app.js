@@ -11,22 +11,22 @@ class MyApp extends App {
     let pageProps = {};
     // isauthenticated for both SSR and CSR
     const isAuthenticated = process.browser ? auth0.clientAuth() : auth0.serverAuth(ctx.req);
-    console.log(isAuthenticated);
     
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps }
+    const auth = { isAuthenticated };
+
+    return { pageProps, auth };
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, auth } = this.props
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <Component {...pageProps} auth={auth} />
       </Container>
     )
   }

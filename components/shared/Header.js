@@ -46,6 +46,7 @@ export default class Example extends React.Component {
         });
     }
     render() {
+        const { isAuthenticated } = this.props;
         return (
             <div>
                 <Navbar className="absolute port-navbar port-default" color="transparent" dark expand="md">
@@ -69,7 +70,7 @@ export default class Example extends React.Component {
                                 <BsNavLink title="Cv" route="/cv" />
                             </NavItem>
                             {
-                                !auth0.isAuthenticated() ? (
+                                !isAuthenticated ? (
                                     <NavItem className="port-navbar-item">
                                         <Login />
                                     </NavItem>
